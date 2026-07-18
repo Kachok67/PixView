@@ -1,0 +1,4 @@
+image height
+image width
+background pixels fill color
+image (cannot be bigger than the specified dimensions on top on line 1 and 2.)

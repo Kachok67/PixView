@@ -4,6 +4,8 @@ lines = []
 colors = []
 pixels = []
 
+fileToOpen = input("Please enter the name of the file you want to open:\n")
+
 screen = turtle.Screen()
 tur = turtle.Turtle()
 
@@ -46,7 +48,7 @@ def DrawPixel(t, size, color, newline, lineIndex = 0):
     )
 
 
-with open ("Smiley.simpix", "r") as file:
+with open (fileToOpen, "r") as file:
     height = int(file.readline().strip())
     width = int(file.readline().strip())
     fillcolor = file.readline().strip()

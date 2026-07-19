@@ -10,7 +10,7 @@ pixels = []
 
 fileToOpen = input("Please enter the name of the file you want to open:\n")
 if fileToOpen == '':
-    fileToOpen = "Example1.simpix"
+    fileToOpen = "ExampleImages/Example3.simpix"
 
 screen = turtle.Screen()
 tur = turtle.Turtle()

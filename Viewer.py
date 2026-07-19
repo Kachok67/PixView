@@ -1,15 +1,21 @@
-import turtle
+try:
+    import turtle
+except ImportError or ImportWarning:
+    print("Turtle library has failed to initialise")
+
 
 lines = []
 colors = []
 pixels = []
 
 fileToOpen = input("Please enter the name of the file you want to open:\n")
+if fileToOpen == '':
+    fileToOpen = "Example2.simpix"
 
 screen = turtle.Screen()
 tur = turtle.Turtle()
 
-pixelSize = 10
+pixelSize = 20
 lineIndex = 0
 
 tur.penup()
@@ -18,10 +24,16 @@ tur.goto(
 )
 tur.pendown()
 
-tur.hideturtle()
+hideDebug = input("Do you want to hide the debug things? (y/n) ")
+if hideDebug == 'y':
+    tur.hideturtle()
+    turtle.tracer(0, 0)
+    turtle.speed(5)
+else:
+    tur.speed(0)
 
 def DrawPixel(t, size, color, newline, lineIndex = 0):
-    tur.speed(0)
+
     tur.pensize(3)
     tur.penup()
     if not newline:
@@ -70,12 +82,15 @@ with open (fileToOpen, "r") as file:
             pixels.append('9')
 
     for character in pixels:
+
         if character == '0':
             colors.append('black')
         elif character == '1':
             colors.append('blue')
+
         elif character == '9':
-            colors.append('newline')
+            if manual_spacing:
+                colors.append('newline')
 
     print(pixels)
     print(colors) # Now we know what colored pixels we need to draw

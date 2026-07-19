@@ -12,17 +12,12 @@ fileToOpen = input("Please enter the name of the file you want to open:\n")
 if fileToOpen == '':
     fileToOpen = "ExampleImages/Example3.simpix"
 
-screen = turtle.Screen()
+
 tur = turtle.Turtle()
 
 pixelSize = 20
 lineIndex = 0
 
-tur.penup()
-tur.goto(
-    -300, 300
-)
-tur.pendown()
 
 hideDebug = input("Do you want to hide the debug things? (y/n) ")
 if hideDebug == 'y':
@@ -31,6 +26,24 @@ if hideDebug == 'y':
     turtle.speed(5)
 else:
     tur.speed(0)
+
+screen = turtle.Screen()
+
+def DrawText(text):
+    tur.penup()
+    tur.goto(
+    -300, 310
+    )
+    tur.pendown()
+    tur.write(text, font=("Arial", 25))
+    print(f"{image} has been written")
+    tur.penup()
+
+tur.penup()
+tur.goto(
+    -300, 300
+)
+tur.pendown()
 
 def DrawPixel(t, size, color, newline, lineIndex = 0):
 
@@ -64,11 +77,11 @@ def DrawPixel(t, size, color, newline, lineIndex = 0):
 with open (fileToOpen, "r") as file:
     height = int(file.readline().strip())
     width = int(file.readline().strip())
-    fillcolor = file.readline().strip()
+    image = file.readline().strip()
     manual_spacing = bool(file.readline().strip())
-    print(f"{height},{width},{fillcolor},{manual_spacing}")
+    print(f"{height},{width},{image},{manual_spacing}")
 
-
+    DrawText(image)
 
 
     for y in range(height):

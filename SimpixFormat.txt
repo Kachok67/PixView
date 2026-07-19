@@ -2,3 +2,15 @@ image height
 image width
 background pixels fill color
 image (cannot be bigger than the specified dimensions on top on line 1 and 2.), pixels have a fixed color palette from 1 to 8
+
+COLOR list:
+0 -> black
+1 -> red
+2 -> orange
+3 -> yellow
+4 -> green
+5 -> purple
+6 -> pink
+7 -> brown
+8 -> gray
+9 -> new line

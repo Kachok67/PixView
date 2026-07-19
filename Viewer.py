@@ -10,7 +10,7 @@ pixels = []
 
 fileToOpen = input("Please enter the name of the file you want to open:\n")
 if fileToOpen == '':
-    fileToOpen = "Example2.simpix"
+    fileToOpen = "Example1.simpix"
 
 screen = turtle.Screen()
 tur = turtle.Turtle()
@@ -42,6 +42,7 @@ def DrawPixel(t, size, color, newline, lineIndex = 0):
             t.forward(size)
             print("A background pixel has been drawn")
         else:
+            tur.fillcolor(color)
 
             tur.begin_fill()
 
@@ -67,7 +68,7 @@ with open (fileToOpen, "r") as file:
     manual_spacing = bool(file.readline().strip())
     print(f"{height},{width},{fillcolor},{manual_spacing}")
 
-    tur.fillcolor(fillcolor)
+
 
 
     for y in range(height):
@@ -86,7 +87,21 @@ with open (fileToOpen, "r") as file:
         if character == '0':
             colors.append('black')
         elif character == '1':
-            colors.append('blue')
+            colors.append('red')
+        elif character == '2':
+            colors.append('orange')
+        elif character == '3':
+            colors.append('yellow')
+        elif character == '4':
+            colors.append('green')
+        elif character == '5':
+            colors.append('purple')
+        elif character == '6':
+            colors.append('pink')
+        elif character == '7':
+            colors.append('brown')
+        elif character == '8':
+            colors.append('gray')
 
         elif character == '9':
             if manual_spacing:
